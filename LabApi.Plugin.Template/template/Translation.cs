@@ -1,4 +1,4 @@
-﻿namespace LabApi.Plugin.Template;
+﻿namespace Template;
 
 public class Translation
 {

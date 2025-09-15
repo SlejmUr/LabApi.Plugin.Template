@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "aksueikava",
+  "classifications": [ "LabApi", "Games" ],
+  "name": "LabApi Plugin Template",
+  "identity": "LabApi.Plugin.Template",
+  "groupIdentity": "LabApi.Plugin.Template",
+  "shortName": "labapi",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "Template",
+  "preferNameDirectory": true,
+  "symbols": {
+    "author": {
+      "type": "parameter",
+      "defaultValue": "",
+      "replaces": "__author__"
+    },
+    "description": {
+      "type": "parameter",
+      "defaultValue": "",
+      "replaces": "__description__"
+    },
+    "includetranslation": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "condition": "(!includetranslation)",
+          "exclude": [ "Translation.cs" ]
+        }
+      ]
+    }
+  ]
+}

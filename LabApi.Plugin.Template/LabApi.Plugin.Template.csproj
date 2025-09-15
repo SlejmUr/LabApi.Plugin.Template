@@ -1,21 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net481</TargetFramework>
-        <LangVersion>latest</LangVersion>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <PlatformTarget>x64</PlatformTarget>
-    </PropertyGroup>
+	<PropertyGroup>
+		<PackageType>Template</PackageType>
+		<PackageVersion>1.0</PackageVersion>
+		<PackageId>LabApi.Plugin.Template</PackageId>
+		<Title>LabApi Plugin Template</Title>
+		<Authors>aksueikava</Authors>
+		<Description>Templates to use when creating an plugin for SCP:SL using LabAPI.</Description>
+		<PackageTags>dotnet-new;templates;labapi;scpsl</PackageTags>
+		<TargetFramework>net481</TargetFramework>
 
-    <ItemGroup>
-        <PackageReference Include="Northwood.LabAPI" Version="1.1.2" />
-    </ItemGroup>
+		<IncludeContentInPack>true</IncludeContentInPack>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<ContentTargetFolders>content</ContentTargetFolders>
+	</PropertyGroup>
 
-    <ItemGroup>
-        <Reference Include="Assembly-CSharp">
-            <HintPath>$(SL_REFERENCES)\Assembly-CSharp.dll</HintPath>
-        </Reference>
-    </ItemGroup>
-    
+	<ItemGroup>
+		<Content Include="template\**\*" Exclude="template\**\bin\**;template\**\obj\**" />
+		<Compile Remove="**\*" />
+	</ItemGroup>
+
 </Project>
