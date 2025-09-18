@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net481</TargetFramework>
+        <TargetFramework>net48</TargetFramework>
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
@@ -9,19 +9,28 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Northwood.LabAPI" Version="1.1.2" />
+		<PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2" PrivateAssets="all" ExcludeAssets="runtime" ReferenceOutputAssembly="false" Private="true" />
+		<PackageReference Include="Northwood.LabAPI" Version="1.1.2" Private="true">
+			<!--#if (publicize) -->
+				<Publicize>True</Publicize>
+			<!--#endif -->
+		</PackageReference>
     </ItemGroup>
 
     <ItemGroup>
-        <Reference Include="Assembly-CSharp">
-            <HintPath>$(SL_REFERENCES)\Assembly-CSharp.dll</HintPath>
-        </Reference>
-		<!--#if (commonref) -->
-		<!-- TODO: Add SL required common references here -->
-		<!--#endif -->
+		<Reference Include="Assembly-CSharp" Private="false" >
+			<!--#if (publicize) -->
+			<Publicize>True</Publicize>
+			<!--#endif -->
+		</Reference>
 		<!--#if (unityref) -->
 		<!-- TODO: Add unity CoreModule here -->
 		<!--#endif -->
     </ItemGroup>
-    
+	<!--#if (commonref) -->
+	<Import Project="CommonRef.props"/>
+	<!--#endif -->
+	<PropertyGroup>
+		<AssemblySearchPaths>$(AssemblySearchPaths);$(SL_REFERENCES)</AssemblySearchPaths>
+	</PropertyGroup>
 </Project>

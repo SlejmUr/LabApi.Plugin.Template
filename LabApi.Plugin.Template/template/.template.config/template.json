@@ -1,6 +1,6 @@
 {
   "$schema": "http://json.schemastore.org/template",
-  "author": "aksueikava",
+  "author": "SlejmUr", // Should replace this to northwood in real scenerio.
   "classifications": [ "LabApi", "Games" ],
   "name": "LabApi Plugin Template",
   "identity": "LabApi.Plugin.Template",
@@ -16,17 +16,38 @@
     "author": {
       "type": "parameter",
       "defaultValue": "",
-      "replaces": "__author__"
+      "replaces": "__author__",
+      "description": "The author of the plugin. (Your name)"
     },
     "description": {
       "type": "parameter",
       "defaultValue": "",
-      "replaces": "__description__"
+      "replaces": "__description__",
+      "description": "A short description what this plugin do."
     },
     "includetranslation": {
       "type": "parameter",
       "datatype": "bool",
-      "defaultValue": "false"
+      "defaultValue": "false",
+      "description": "Changes whenever to include Translation."
+    },
+    "publicize": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "Changes whenever to publicize all referenced assembly."
+    },
+    "noconfig": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "Should not generate a config file."
+    },
+    "commonref": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "Add common references."
     }
   },
   "sources": [
@@ -35,6 +56,14 @@
         {
           "condition": "(!includetranslation)",
           "exclude": [ "Translation.cs" ]
+        },
+        {
+          "condition": "(noconfig)",
+          "exclude": [ "Config.cs" ]
+        },
+        {
+          "condition": "(!commonref)",
+          "exclude": [ "CommonRef.props" ]
         }
       ]
     }

@@ -1,0 +1,39 @@
+<Project>
+	<ItemGroup>
+		<Reference Include="Assembly-CSharp-firstpass" Private="false" >
+			<!--#if (publicize) -->
+			<Publicize>True</Publicize>
+			<!--#endif -->
+		</Reference>
+		<Reference Include="CommandSystem.Core" Private="false" >
+			<!--#if (publicize) -->
+			<Publicize>True</Publicize>
+			<!--#endif -->
+		</Reference>
+		<Reference Include="Mirror" Private="false" >
+			<!--#if (publicize) -->
+			<Publicize>True</Publicize>
+			<!--#endif -->
+		</Reference>
+		<Reference Include="Mirror.Components" Private="false" >
+			<!--#if (publicize) -->
+			<Publicize>True</Publicize>
+			<!--#endif -->
+		</Reference>
+		<Reference Include="Pooling" Private="false" >
+			<!--#if (publicize) -->
+			<Publicize>True</Publicize>
+			<!--#endif -->
+		</Reference>
+		<Reference Include="NorthwoodLib" Private="false" >
+			<!--#if (publicize) -->
+			<Publicize>True</Publicize>
+			<!--#endif -->
+		</Reference>
+		<Reference Include="Snake" Private="false" >
+			<!--#if (publicize) -->
+			<Publicize>True</Publicize>
+			<!--#endif -->
+		</Reference>
+	</ItemGroup>
+</Project>

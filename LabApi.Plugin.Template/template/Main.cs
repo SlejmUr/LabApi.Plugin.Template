@@ -5,7 +5,12 @@ using LabApi.Loader.Features.Plugins.Enums;
 
 namespace Template;
 
-internal sealed class Plugin : Plugin<Config>
+internal sealed class Main
+#if (noconfig)
+    : Plugin
+#else
+    : Plugin<Config>
+#endif
 {
     public override string Name { get; } = "Template";
     public override string Description { get; } = "__description__";
@@ -14,7 +19,7 @@ internal sealed class Plugin : Plugin<Config>
     public override Version Version { get; } = new(1, 0, 0);
     public override Version RequiredApiVersion { get; } = new(LabApiProperties.CompiledVersion);
 
-    public static Plugin? Instance { get; private set; }
+    public static Main? Instance { get; private set; }
 #if (includetranslation)
     public Translation? Translation { get; private set; }
 #endif
